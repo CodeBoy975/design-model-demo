@@ -88,6 +88,7 @@ public class VirtualWalletService {
             transactionRepo.updateStatus(transactionId, "失败的状态");
         }
         transactionRepo.updateStatus(transactionId, "已执行状态");
+
     }
 
     /**
