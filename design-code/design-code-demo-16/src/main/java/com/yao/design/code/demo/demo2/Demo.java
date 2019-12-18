@@ -1,4 +1,4 @@
-package com.yao.demo2;
+package com.yao.design.code.demo.demo2;
 
 /**
  * @author pengjie_yao

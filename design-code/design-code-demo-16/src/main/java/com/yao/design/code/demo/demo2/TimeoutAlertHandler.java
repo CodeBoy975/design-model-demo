@@ -1,14 +1,16 @@
-package com.yao.demo2;
+package com.yao.design.code.demo.demo2;
 
 import javax.management.Notification;
 
 /**
+ *  超时拦截
+ *  todo 改动2：需求变动后所加的代码，添加新的handler
  * @author pengjie_yao
  * @date 2019/12/18 16:42
  */
-public class TpsAlertHandler extends AlertHandler {
+public class TimeoutAlertHandler extends AlertHandler {
 
-    public TpsAlertHandler(AlertRule rule, Notification notification) {
+    public TimeoutAlertHandler(AlertRule rule, Notification notification) {
         super(rule, notification);
     }
 
@@ -17,7 +19,7 @@ public class TpsAlertHandler extends AlertHandler {
 
         long tps = apiStatInfo.getRequestCount() / apiStatInfo.getDurationOfSeconds();
         if (tps > rule.getMatchedRule(apiStatInfo.getApi()).getMaxTps()) {
-            notification.notify(NotificationEmergencyLevel.URGENCY, "...");
+            notification.notify(NotificationEmergencyLevel.SEVRE, "...");
         }
     }
 }

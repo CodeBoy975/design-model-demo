@@ -1,4 +1,4 @@
-package com.yao.demo1;
+package com.yao.design.code.demo.demo1;
 
 import javax.management.Notification;
 
@@ -45,7 +45,7 @@ public class Alert {
      *
      * 改动代码1：方法参数增加timeoutCount
      * 改动代码二： 添加了接口超时处理逻辑
-     * 
+     *
      * 这样的坏处： 我们对接口进行了修改，也就意味着调用该接口代码都要做相应的修改，另一方面仅，修改了check函数，相应的单元测试都要进行修改
      * @param api
      * @param requestCount

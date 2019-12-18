@@ -1,10 +1,10 @@
-package com.yao;
+package com.yao.design.code.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DesignCodeApplicationTests {
+class DesignCodeDemo16ApplicationTests {
 
     @Test
     void contextLoads() {
