@@ -1,19 +1,19 @@
-package com.yao.anemic.module.bo;
+package com.yao.design.code.demo.anemic.module.entry;
 
 import lombok.Data;
 
 import java.math.BigDecimal;
 
 /**
- *  虚拟钱包BO
+ * 虚拟钱包
  * @author pengjie_yao
- * @date 2019/12/5 15:39
+ * @date 2019/12/5 15:45
  */
 @Data
-public class VirtualWalletBo {
+public class VirtualWalletEntity {
 
     /**
-     *  id
+     * id
      */
     private Long id;
 

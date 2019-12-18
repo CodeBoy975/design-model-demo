@@ -1,9 +1,8 @@
-package com.yao.anemic.module.entry;
+package com.yao.design.code.demo.anemic.module.entry;
 
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  *  虚拟钱包交易实体

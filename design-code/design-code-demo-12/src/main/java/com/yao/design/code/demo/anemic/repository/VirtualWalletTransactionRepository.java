@@ -1,6 +1,6 @@
-package com.yao.anemic.repository;
+package com.yao.design.code.demo.anemic.repository;
 
-import com.yao.anemic.module.entry.VirtualWalletTransactionEntity;
+import com.yao.design.code.demo.anemic.module.entry.VirtualWalletTransactionEntity;
 
 /**
  * @author pengjie_yao

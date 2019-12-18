@@ -1,4 +1,4 @@
-package com.yao.anemic.service;
+package com.yao.design.code.demo.anemic.service;
 
 import java.math.BigDecimal;
 

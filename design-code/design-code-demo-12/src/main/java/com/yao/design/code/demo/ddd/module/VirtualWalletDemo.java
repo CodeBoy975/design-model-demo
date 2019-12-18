@@ -1,4 +1,4 @@
-package com.yao.ddd.module;
+package com.yao.design.code.demo.ddd.module;
 
 import java.math.BigDecimal;
 

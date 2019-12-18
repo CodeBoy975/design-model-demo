@@ -1,6 +1,6 @@
-package com.yao.anemic.controller;
+package com.yao.design.code.demo.anemic.controller;
 
-import com.yao.anemic.service.VirtualWalletService;
+import com.yao.design.code.demo.anemic.service.VirtualWalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;

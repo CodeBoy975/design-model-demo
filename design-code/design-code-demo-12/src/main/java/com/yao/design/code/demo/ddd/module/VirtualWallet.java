@@ -1,7 +1,4 @@
-package com.yao.ddd.module;
-
-import com.yao.anemic.repository.VirtualWalletRepository;
-import com.yao.anemic.repository.VirtualWalletTransactionRepository;
+package com.yao.design.code.demo.ddd.module;
 
 import java.math.BigDecimal;
 

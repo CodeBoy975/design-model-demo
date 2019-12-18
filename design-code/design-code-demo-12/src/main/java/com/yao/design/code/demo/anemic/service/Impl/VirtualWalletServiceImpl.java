@@ -1,11 +1,11 @@
-package com.yao.anemic.service.Impl;
+package com.yao.design.code.demo.anemic.service.Impl;
 
-import com.yao.anemic.module.bo.VirtualWalletBo;
-import com.yao.anemic.module.entry.VirtualWalletEntity;
-import com.yao.anemic.module.entry.VirtualWalletTransactionEntity;
-import com.yao.anemic.repository.VirtualWalletRepository;
-import com.yao.anemic.repository.VirtualWalletTransactionRepository;
-import com.yao.anemic.service.VirtualWalletService;
+import com.yao.design.code.demo.anemic.module.bo.VirtualWalletBo;
+import com.yao.design.code.demo.anemic.module.entry.VirtualWalletEntity;
+import com.yao.design.code.demo.anemic.module.entry.VirtualWalletTransactionEntity;
+import com.yao.design.code.demo.anemic.repository.VirtualWalletRepository;
+import com.yao.design.code.demo.anemic.repository.VirtualWalletTransactionRepository;
+import com.yao.design.code.demo.anemic.service.VirtualWalletService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
