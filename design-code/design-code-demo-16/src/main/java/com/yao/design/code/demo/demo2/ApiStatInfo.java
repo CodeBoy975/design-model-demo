@@ -14,6 +14,7 @@ public class ApiStatInfo {
      *  api名字
      */
     private String api;
+
     /**
      *  请求数
      */
@@ -28,8 +29,9 @@ public class ApiStatInfo {
     private long durationOfSeconds;
 
     /**
-     *  改动1：需求变动后所加的代码
+     * todo  改动1：需求变动后所加的代码
      * 超时数
      */
     private long timeoutCount;
+
 }

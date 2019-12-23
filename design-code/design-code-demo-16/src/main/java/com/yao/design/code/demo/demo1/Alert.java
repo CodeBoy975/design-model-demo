@@ -8,11 +8,11 @@ import javax.management.Notification;
  */
 public class Alert {
 
-    private AlertRult rule;
+    private AlertRule rule;
 
     private Notification notification;
 
-    public Alert(AlertRult rule, Notification notification) {
+    public Alert(AlertRule rule, Notification notification) {
         this.rule = rule;
         this.notification = notification;
     }
@@ -61,7 +61,6 @@ public class Alert {
         if (errorCount > rule.getMatchedRule(api).getMaxErrorCount()) {
             notification.notify(NotificationEmergencyLevel.SEVERE, "...");
         }
-
 
         // 改动代码二： 添加了接口超时处理逻辑
         long timeoutTps = timeoutCount / durationOfSeconds;
