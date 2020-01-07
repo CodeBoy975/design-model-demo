@@ -2,6 +2,8 @@ package com.yao.controller;
 
 import com.yao.module.UserVo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,6 +30,7 @@ public class UserController {
      *
      * @param user
      */
+    @PostMapping("/register")
     public void register(UserVo user) {
         long startTimestamp = System.currentTimeMillis();
         // 记录访问时间
@@ -44,13 +47,14 @@ public class UserController {
      * @param password
      * @return
      */
-    public UserVo login(String telephone, String password) {
+    @GetMapping("/login")
+    public String login(String telephone, String password) {
         long startTimestamp = System.currentTimeMillis();
         // 记录访问时间
         metrics.recordTimestamp("login", startTimestamp);
         // 记录响应时间
         long respTime = System.currentTimeMillis() - startTimestamp;
         metrics.recordResponseTime("login", respTime);
-        return null;
+        return "登录成功";
     }
 }
