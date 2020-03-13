@@ -29,6 +29,7 @@ public class ConsoleReporter {
 
     // 第4个代码逻辑：定时触发第1、2、3代码逻辑的执行；
     public void startRepeatedReport(long periodInSeconds, long durationInSeconds) {
+        // 开启定时线程
         executor.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {

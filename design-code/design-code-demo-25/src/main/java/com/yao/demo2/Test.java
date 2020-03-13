@@ -18,7 +18,7 @@ public class Test {
         emailReporter.addToAddress("wangzheng@xzg.com");
         emailReporter.startDailyReport();
 
-        MetricsController collector = new MetricsController(storage);
+        MetricsCollector collector = new MetricsCollector(storage);
         collector.recordRequest(new RequestInfo("register", 123, 10234));
         collector.recordRequest(new RequestInfo("register", 223, 11234));
         collector.recordRequest(new RequestInfo("register", 323, 12334));

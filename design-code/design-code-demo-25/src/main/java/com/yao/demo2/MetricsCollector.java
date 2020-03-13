@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2020/3/13 14:30
  */
 @RestController
-public class MetricsController {
+public class MetricsCollector {
 
     @Autowired
     private MetricsStorage metricsStorage;
@@ -23,7 +23,7 @@ public class MetricsController {
      *
      * @param metricsStorage
      */
-    public MetricsController(MetricsStorage metricsStorage) {
+    public MetricsCollector(MetricsStorage metricsStorage) {
         this.metricsStorage = metricsStorage;
     }
 
