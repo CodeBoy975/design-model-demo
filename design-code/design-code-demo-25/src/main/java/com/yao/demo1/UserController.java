@@ -36,11 +36,12 @@ public class UserController {
      * @return
      */
     @GetMapping("/login")
-    public String login(User user) {
+    public String login(User user) throws InterruptedException {
         long startTimestamp = System.currentTimeMillis();
         // 记录访问时间
         metrics.recordTimesstamp("login", startTimestamp);
         System.out.println("登录等操作中");
+        Thread.sleep(1000);
         long respTime = System.currentTimeMillis() - startTimestamp;
         // 记录响应时间
         metrics.recordResponseTime("login", respTime);
@@ -54,11 +55,14 @@ public class UserController {
      * @return
      */
     @GetMapping("/register")
-    public String register(User user) {
+    public String register(User user) throws InterruptedException {
         long startTimestamp = System.currentTimeMillis();
         // 记录访问时间
         metrics.recordTimesstamp("register", startTimestamp);
         System.out.println("注册等操作中");
+
+        Thread.sleep(1000);
+
         long respTime = System.currentTimeMillis() - startTimestamp;
         // 记录响应时间
         metrics.recordResponseTime("register", respTime);

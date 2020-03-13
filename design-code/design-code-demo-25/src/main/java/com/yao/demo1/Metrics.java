@@ -3,6 +3,7 @@ package com.yao.demo1;
 import com.google.gson.Gson;
 import lombok.Data;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,13 +97,41 @@ public class Metrics {
     }
 
 
-    private double max(List<Double> dataset) {
-        //省略代码实现
-        return 1.0;
+    /**
+     * 计算最大值
+     *
+     * @param times
+     * @return
+     */
+    private double max(List<Double> times) {
+        if (!CollectionUtils.isEmpty(times)) {
+            double max = times.get(0);
+            for (Double entry : times) {
+                if (max < entry) {
+                    max = entry;
+                }
+            }
+            return max;
+        }
+
+        return -1;
     }
 
-    private double avg(List<Double> dataset) {
-        //省略代码实现
-        return 1.0;
+    /**
+     * 计算平均值
+     *
+     * @param times
+     * @return
+     */
+    private double avg(List<Double> times) {
+        if (!CollectionUtils.isEmpty(times)) {
+            double sum = 0;
+            for (Double entry : times) {
+                sum += entry;
+            }
+            return sum / times.size();
+        }
+
+        return -1;
     }
 }
