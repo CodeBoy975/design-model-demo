@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 实现功能： 登录注册接口的访问时间和响应时间
+ * 实现功能： 登录注册接口的访问时间和响应时间,并将信息显示在控制台上
  *
  * @author pengjie_yao
  * @date 2020/3/12 10:21
