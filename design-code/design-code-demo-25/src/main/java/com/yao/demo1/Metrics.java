@@ -1,6 +1,8 @@
-package com.yao.controller;
+package com.yao.demo1;
 
 import com.google.gson.Gson;
+import lombok.Data;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,20 +13,32 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 指标类：用于存储： 响应时间、访问时间等信息
+ *
  * @author pengjie_yao
- * @date 2020/1/7 17:57
+ * @date 2020/3/12 10:23
  */
-
+@Data
 public class Metrics {
+
     /**
-     * Map的key是接口名称，value对应接口请求的响应时间或时间戳；
+     * 响应时间的存储
      */
     private Map<String, List<Double>> responseTimes = new HashMap<>();
-    private Map<String, List<Double>> timestamps = new HashMap<>();
-    private ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
     /**
-     * 记录接口请求的响应时间
+     * 访问时间
+     */
+    private Map<String, List<Double>> timestamps = new HashMap<>();
+
+    /**
+     * 定时任务的线程池
+     */
+    private ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+
+
+    /**
+     * 记录响应时间
      *
      * @param apiName
      * @param responseTime
@@ -35,18 +49,20 @@ public class Metrics {
     }
 
     /**
-     * 记录接口的访问时间
+     * 记录访问时间
      *
      * @param apiName
      * @param timestamp
      */
-    public void recordTimestamp(String apiName, double timestamp) {
+    public void recordTimesstamp(String apiName, double timestamp) {
         timestamps.putIfAbsent(apiName, new ArrayList<>());
         timestamps.get(apiName).add(timestamp);
     }
 
     /**
-     * 以指定的频率统计数据并输出结果
+     * 以固定的频率统计数据并输出结果
+     * <p>
+     * Gson提供了fromJson() 和toJson() 两个直接用于解析和生成的方法，前者实现反序列化，后者实现了序列化；同时每个方法都提供了重载方法
      *
      * @param period
      * @param unit
@@ -57,6 +73,7 @@ public class Metrics {
             public void run() {
                 Gson gson = new Gson();
                 Map<String, Map<String, Double>> stats = new HashMap<>();
+                // 获取响应时间接口最大值
                 for (Map.Entry<String, List<Double>> entry : responseTimes.entrySet()) {
                     String apiName = entry.getKey();
                     List<Double> apiRespTimes = entry.getValue();
@@ -65,16 +82,19 @@ public class Metrics {
                     stats.get(apiName).put("avg", avg(apiRespTimes));
                 }
 
+                // 获取访问时间
                 for (Map.Entry<String, List<Double>> entry : timestamps.entrySet()) {
                     String apiName = entry.getKey();
                     List<Double> apiTimestamps = entry.getValue();
                     stats.putIfAbsent(apiName, new HashMap<>());
                     stats.get(apiName).put("count", (double) apiTimestamps.size());
                 }
+                // json格式输出
                 System.out.println(gson.toJson(stats));
             }
         }, 0, period, unit);
     }
+
 
     private double max(List<Double> dataset) {
         //省略代码实现
